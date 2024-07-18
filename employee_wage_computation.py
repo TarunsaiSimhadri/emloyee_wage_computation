@@ -1,14 +1,3 @@
-"""
-
-@Author: Tarunsai
-@Date: 2024-07-16
-@Last Modified by:
-@Last Modified time:
-@Title : Employee wage computation.
-
-"""
-
-
 import random
 
 class Employee:
@@ -94,35 +83,44 @@ class MultipleCompanies:
             print("*"*50)
             print(f"Company: {com.company_name}")
             com.display_emp_details()
-    
 
 def main():
-    
-    emp1 = Employee("tarun", 20)
-    emp2 = Employee("varun", 30)
-    emp3 = Employee("kamal", 20)
+    multi_comp = MultipleCompanies()
 
-    emp1.monthly_wage()
-    emp2.monthly_wage()
-    emp3.monthly_wage()
+    while True:
+        choice = int(input("Enter 0 to exit: "))
+        if choice == 0:
+            break
 
-    com1 = Company("tcs")
-    com2 = Company("wipro")
-    com3 = Company("apexon")
+        if choice == 1:
+            company_name = input("Enter company name: ")
+            company = multi_comp.get_company(company_name)
+            if not company:
+                company = Company(company_name)
 
-    com1.add_employee(emp1)
-    com2.add_employee(emp2)
-    com3.add_employee(emp3)
+            emp_name = input("Enter employee name: ")
+            employee = company.get_employee(emp_name)
+            if not employee:
+                wage_per_hr = int(input("ENter wage: "))
+                employee = Employee(emp_name, wage_per_hr)
+                employee.monthly_wage()
 
-    com2.display_emp_details()
-    com1.display_emp_details()
-    com3.display_emp_details()
-
-    companies = MultipleCompanies()
-    companies.add_company(com1)
-    companies.add_company(com2)
-    companies.add_company(com3)
-    companies.display_company()
+            company.add_employee(employee)
+            multi_comp.add_company(company)
+        if choice == 2:
+            multi_comp.display_company()
+        if choice ==3:
+            company_name = input('enter company_name: ')
+            multi_comp.delete_company(company_name)
+        if choice == 4:
+            company_name = input("Enter company name: ")
+            company = multi_comp.get_company(company_name)
+            if not company:
+                print("company not found")
+                continue
+            emp_name = input('enter employee name: ')
+            company.delete_employee(emp_name)
+            
 
 if __name__ == '__main__':
     main()
