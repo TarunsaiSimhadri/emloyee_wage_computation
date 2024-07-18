@@ -72,7 +72,8 @@ def calculate_employee_monthly_wage():
     emp_daily_wage =[]
     working_days = 1
     total_wage = 0
-    while working_days<=20:
+    total_hours = 0
+    while working_days < 20 and total_hours <= 100:
         emp_attendance = check_attendance()
         emp_atd_lst.append(emp_attendance)
         if emp_attendance == 'present':
@@ -80,10 +81,16 @@ def calculate_employee_monthly_wage():
             one_day_wage=employee_type_wage_per_day(emp_type)
             emp_daily_wage.append(one_day_wage)
             total_wage+=one_day_wage
+            total_hours+=8
+            if total_hours>100:
+                one_day_wage = emp_daily_wage[-1] / 2
+                emp_daily_wage[-1] = one_day_wage
+                total_wage = total_wage - one_day_wage
         else:
             emp_daily_wage.append(0)
             total_wage+=0
         working_days+=1
+    print(working_days, total_hours)
     return total_wage, emp_atd_lst, emp_daily_wage
 
 
