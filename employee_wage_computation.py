@@ -55,6 +55,26 @@ class Employee:
         print(f"Total Days Worked: {self.total_days_worked}")
 
 
+class Company:
+    def __init__(self, name) -> None:
+        self.company_name = name
+        self.employee_dict = {}
+
+    def get_employee(self, emp_name):
+        return self.employee_dict.get(emp_name)
+
+    def add_employee(self, emp_obj):
+        self.employee_dict.update({emp_obj.emp_name: emp_obj})
+
+    def delete_employee(self, emp_name):
+        self.employee_dict.pop(emp_name)
+    
+    def display_emp_details(self):
+        for emp in self.employee_dict.values():
+            emp.get_emp_details()
+    
+
+
 def main():
     emp1 = Employee("tarun", 20)
     emp2 = Employee("varun", 30)
