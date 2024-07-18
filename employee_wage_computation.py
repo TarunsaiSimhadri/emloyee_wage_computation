@@ -88,7 +88,7 @@ def main():
     multi_comp = MultipleCompanies()
 
     while True:
-        choice = int(input("Enter 0 to exit: "))
+        choice = int(input("Enter 0 to exit, 1 to add company, 2 to add display company, 3 to delete company, 4 to delete employee : "))
         if choice == 0:
             break
 
@@ -100,6 +100,7 @@ def main():
 
             emp_name = input("Enter employee name: ")
             employee = company.get_employee(emp_name)
+            
             if not employee:
                 wage_per_hr = int(input("ENter wage: "))
                 employee = Employee(emp_name, wage_per_hr)
@@ -107,11 +108,14 @@ def main():
 
             company.add_employee(employee)
             multi_comp.add_company(company)
+
         if choice == 2:
             multi_comp.display_company()
+
         if choice ==3:
             company_name = input('enter company_name: ')
             multi_comp.delete_company(company_name)
+
         if choice == 4:
             company_name = input("Enter company name: ")
             company = multi_comp.get_company(company_name)
