@@ -84,6 +84,14 @@ def main():
     emp2.monthly_wage()
     emp3.monthly_wage()
 
+    com1 = Company("tcs")
+    com2 = Company("wipro")
+    com3 = Company("apexon")
+
+    com1.add_employee(emp1)
+    com2.add_employee(emp2)
+    com3.add_employee(emp3)
+
 
 if __name__ == '__main__':
     main()
