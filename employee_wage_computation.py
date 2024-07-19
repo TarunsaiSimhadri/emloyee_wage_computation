@@ -40,6 +40,7 @@ def check_attendance():
 
 
 def employee_type_wage_per_day(employee_type):
+
     """
     description:
         This function is used to find employee type and wage accordingly.
@@ -68,6 +69,7 @@ def calculate_employee_monthly_wage():
     return:
         employee_monthly wage
     """
+
     emp_atd_lst = []
     emp_daily_wage =[]
     working_days = 1
@@ -95,6 +97,7 @@ def calculate_employee_monthly_wage():
 
 
 def main():
+    
     total_wage, emp_atd_lst, emp_daily_wage = calculate_employee_monthly_wage()
     print(f'Employee 20 days attendance is {emp_atd_lst}')
     print(f'Employee daily wage for 20 days is {emp_daily_wage}')
