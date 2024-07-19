@@ -50,8 +50,6 @@ def employee_type_wage_per_day(employee_type):
         employee_wage_per_day, else : enter correct employee_type
     """    
 
-
-
     if employee_type == 'FULL-TIME':
         employee_wage_per_day = WAGE_PER_HOUR * FULL_DAY_WORKING_HOURS
         return employee_wage_per_day
@@ -64,8 +62,6 @@ def employee_type_wage_per_day(employee_type):
         return "enter correct employee_type"
         
    
-    
-
 def main():
     emp_attendance = check_attendance()
     print(emp_attendance)
